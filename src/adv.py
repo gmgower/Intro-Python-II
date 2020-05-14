@@ -41,9 +41,10 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 
 # s1 instantiate the Player class
-player = str(input("[n] North [s] South [w] West [e] East [q]Exit\n", room['outside']))
-
+# player = str(input("[n] North [s] South [w] West [e] East [q]Exit\n", room['outside']))
 # print(f'Hello, {player.name}')
+
+player = Player("Texas", room['outside'])
 
 # Write a loop that:
 #
@@ -56,6 +57,24 @@ player = str(input("[n] North [s] South [w] West [e] East [q]Exit\n", room['outs
 #
 # If the user enters "q", quit the game.
 
+directions = {"n":"n_to", "s": "s_to", "e": "e_to", "w": "w_to" }
+
 # s2 player loop
-while not player == 9:
+while True: 
     #s3 player chooses north
+    print(player.current_room.name)
+    print(player.current_room.description)
+
+    choice = input("Which way, Gandalf? ")
+
+    direction = directions[choice]
+    # print(direction)
+
+    try: 
+        player.room = getattr(player.room, direction)
+
+    except AttributeError:
+        print("Sorry can't pass!")
+
+
+    

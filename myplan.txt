@@ -1,0 +1,13 @@
+UPER
+
+Done list 
+- Solve this other bug
+
+ - Make a plyer class
+ - Make a room class
+
+ - Take user input for rooms
+    - User split() to break up input
+        - Research split
+        - Write a new script
+        - SOlve this other bug
