@@ -44,7 +44,7 @@ room['treasure'].s_to = room['narrow']
 # player = str(input("[n] North [s] South [w] West [e] East [q]Exit\n", room['outside']))
 # print(f'Hello, {player.name}')
 
-player = Player("Texas", room['outside'])
+player = Player("John", room['outside'])
 
 # Write a loop that:
 #
@@ -62,19 +62,56 @@ directions = {"n":"n_to", "s": "s_to", "e": "e_to", "w": "w_to" }
 # s2 player loop
 while True: 
     #s3 player chooses north
-    print(player.current_room.name)
-    print(player.current_room.description)
+    print("Your current location: ", player.current_room.name)
+    print("Location's Description: ", player.current_room.description)
 
-    choice = input("Which way, Gandalf? ")
+    choice = input("What do you want to do? move or q to quit the game:  ")
+    if choice == 'q':
+        break
+    elif choice == "move":
+        move = input("Where do you want to go? n for north, s for south, e for east, w for west, or q to quit the game:  ")
+    if move == 'q':
+        break
+    elif player.current_room.name == room["outside"].name and move == "n":
+        player.current_room = room["outside"].n_to
+        # print("Foyer", player.current_room)
 
-    direction = directions[choice]
+    elif player.current_room.name == room['foyer'].name and move == "n":
+        player.current_room = room['foyer'].n_to
+    
+    elif player.current_room.name == room['foyer'].name and move == 's':
+        player.current_room = room['foyer'].s_to
+
+    elif player.current_room.name == room['foyer'].name and move == 'e':
+        player.current_room = room['foyer'].e_to
+
+    elif player.current_room.name == room['overlook'].name and move == 's':
+        player.current_room = room['overlook'].s_to
+
+    elif player.current_room.name == room["narrow"].name and move == 'n':
+        player.current_room = room['narrow'].n_to
+    
+    elif player.current_room.name == room["narrow"].name and move == 's':
+        player.current_room = room['narrow'].s_to
+    
+    elif player.current_room.name == room["narrow"].name and move == 'w':
+        player.current_room = room['narrow'].w_to    
+    else:
+        print("Incorrect input or you cannot you go there.")
+        continue
+            
+
+    
+
+
+    # direction = directions[choice]
     # print(direction)
 
-    try: 
-        player.room = getattr(player.room, direction)
+    # try: 
+    #     player.room = getattr(player.room, direction)
 
-    except AttributeError:
-        print("Sorry can't pass!")
+    # except AttributeError:
+    #     print("Sorry can't pass!")
 
 
     
