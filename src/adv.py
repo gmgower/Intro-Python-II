@@ -57,13 +57,13 @@ player = Player("John", room['outside'])
 #
 # If the user enters "q", quit the game.
 
-directions = {"n":"n_to", "s": "s_to", "e": "e_to", "w": "w_to" }
+# directions = {"n":"n_to", "s": "s_to", "e": "e_to", "w": "w_to" }
 
 # s2 player loop
 while True: 
     #s3 player chooses north
-    print("Your current location: ", player.current_room.name)
-    print("Location's Description: ", player.current_room.description)
+    print("Your current location: ", player.current_room.name, "\n")
+    print("Location's Description: ", player.current_room.description, "\n")
 
     choice = input("What do you want to do? move or q to quit the game:  ")
     if choice == 'q':
@@ -99,7 +99,9 @@ while True:
     else:
         print("Incorrect input or you cannot you go there.")
         continue
-            
+    
+    elif cmd == 'take':
+        
 
     
 
