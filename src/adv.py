@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -99,9 +100,7 @@ while True:
     else:
         print("Incorrect input or you cannot you go there.")
         continue
-    
-    elif cmd == 'take':
-        
+            
 
     
 
